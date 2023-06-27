@@ -1,5 +1,5 @@
 function checkPrime(number) {
-    if (number <= 1) {
+    if (1 >= number) {
       return false;
     }
   
