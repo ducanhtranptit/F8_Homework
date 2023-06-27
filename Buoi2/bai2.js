@@ -25,5 +25,5 @@ function calculateElectricityBill(usage) {
 
 const usage = 250;
 const electricityBill = calculateElectricityBill(usage);
-console.log("The electricity bill is: ", electricityBill);
+console.log("Giá điện: ", electricityBill);
   
