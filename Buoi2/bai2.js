@@ -1,3 +1,12 @@
+// # Tính tiền điện
+// Học viên viết chương trình tiền điện hàng tháng theo yêu cầu sau
+
+// Input: Số điện tiêu thụ hàng tháng
+
+// Output: Hiển thị số tiền phải đóng
+
+// Chi tiết giá điện theo bậc
+
 function calculateElectricityBill(usage) {
     let unitPrice = 0;
   

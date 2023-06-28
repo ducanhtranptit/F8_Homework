@@ -1,3 +1,8 @@
+// # Kiểm tra số nguyên tố
+// Viết chương trình kiểm tra 1 số có phải số nguyên tố hay không?
+
+
+
 function checkPrime(number) {
     if (1 >= number) {
       return false;

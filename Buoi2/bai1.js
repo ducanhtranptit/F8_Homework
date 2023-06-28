@@ -1,3 +1,10 @@
+// # Tính tiền taxi
+// Tính tiền cước taxi dựa vào các điều kiện sau
+// Số km ≤ 1 giá 15000đ
+// 1 < số km ≤ 5 giá 13500đ
+// Số km > 5 giá 11000đ
+// Nếu số km > 120 km sẽ được giảm 10% trên tổng số tiền
+
 function taxiFee (distance) {
     let rates;
 
