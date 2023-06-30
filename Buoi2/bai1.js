@@ -6,25 +6,28 @@
 // Nếu số km > 120 km sẽ được giảm 10% trên tổng số tiền
 
 function taxiFee (distance) {
-    let rates;
+    let rates1 = 15000, rates2 = 15000, rates3 = 13500;
+    let totalCost;
 
     if (0 > distance) {
         console.log('Ban da nhap sai');
     } else {
         if (1 >= distance) {
-            rates = 15000;
+            totalCost = distance * rates1;
         } else if (1 < distance && 5 >= distance) {
-            rates = 13500;
+            totalCost = (distance - 1) * rates2 + 1 * rates1;
+
         } else {
             rates = 11000;
         }
     }
-
-    let totalCost = distance * rates;
+;
 
     if (distance > 120) {
         saleOff = totalCost * 0.1;
         totalCost -= saleOff;
+    } else {
+        return "So vao khong hop le!!!"
     }
 
     return totalCost;
