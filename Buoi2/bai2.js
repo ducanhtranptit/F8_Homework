@@ -8,31 +8,26 @@
 // Chi tiết giá điện theo bậc
 
 function calculateElectricityBill(usage) {
-    let unitPrice = 0;
+  const rates = [1678, 1734, 2014, 2536, 2834, 2927];
   
-    if (50 >= usage) {
-      unitPrice = 1678;
-    } else if (100 >= usage) {
-      unitPrice = 1734;
-    } else if (100 >= usage) {
-      unitPrice = 2014;
-    } else if (300 >= usage) {
-      unitPrice = 2536;
-    } else if (400 >= usage) {
-      unitPrice = 2834;
-    } else if (500 >= usage) {
-      unitPrice = 2927;
-    } else {
-      console.log('Dùng ít thôi, không có điện mà dùng đâu');
-      return 0;
-    }
-  
-    let totalCost = unitPrice * usage;
-    return totalCost;
+  if (usage < 0) {
+    return "\nPlease enter a valid electricity usage.\nUsage cannot be less than 0.\n";
+  } else if (usage <= 50) {
+    return usage * rates[0];
+  } else if (usage <= 100) {
+    return 50 * rates[0] + (usage - 50) * rates[1];
+  } else if (usage <= 200) {
+    return 50 * rates[0] + 50 * rates[1] + (usage - 100) * rates[2];
+  } else if (usage <= 300) {
+    return 50 * rates[0] + 50 * rates[1] + 100 * rates[2] + (usage - 200) * rates[3];
+  } else if (usage <= 400) {
+    return 50 * rates[0] + 50 * rates[1] + 100 * rates[2] + 100 * rates[3] + (usage - 300) * rates[4];
+  } else if (usage > 400) {
+    return 50 * rates[0] + 50 * rates[1] + 100 * rates[2] + 100 * rates[3] + 100 * rates[4] + (usage - 400) * rates[5];
   }
-  
+}
 
-const usage = 250;
+const usage = parseFloat(prompt("Enter your electricity usage (kWh): "));
 const electricityBill = calculateElectricityBill(usage);
-console.log("Giá điện: ", electricityBill);
-  
+
+console.log(`Your electricity bill is: $${electricityBill.toFixed(2)}`);
