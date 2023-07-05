@@ -21,13 +21,13 @@ function convertNum(n) {
       return units[0];
     }
 
-    var unitPlace = n % 10;
+    var unit = n % 10;
     n = Math.floor(n / 10);
 
-    var tensPlace = n % 10;
+    var ten = n % 10;
     n = Math.floor(n / 10);
 
-    var hundredPlace = n % 10;
+    var hundred = n % 10;
     n = Math.floor(n / 10);
 
     var thousandPlace = n % 10;
@@ -36,20 +36,20 @@ function convertNum(n) {
       unitsString += units[thousandPlace] + " " + thousands[1] + " ";
     }
 
-    if (hundredPlace > 0) {
-      unitsString += units[hundredPlace] + " " + hundreds[2] + " ";
+    if (hundred > 0) {
+      unitsString += units[hundred] + " " + hundreds[2] + " ";
     }
 
-    if (tensPlace > 0) {
-      if (tensPlace === 1) {
+    if (ten > 0) {
+      if (ten === 1) {
         unitsString += "ten ";
       } else {
-        unitsString += units[tensPlace] + " " + hundreds[1] + " ";
+        unitsString += units[ten] + " " + hundreds[1] + " ";
       }
     }
 
-    if (unitPlace > 0 && tensPlace !== 1) {
-      unitsString += units[unitPlace];
+    if (unit > 0 && ten !== 1) {
+      unitsString += units[unit];
     }
 
     return unitsString.trim();
