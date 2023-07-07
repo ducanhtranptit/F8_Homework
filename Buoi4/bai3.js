@@ -58,6 +58,6 @@ function convertNum(n) {
   }
 }
 
-var n = 2341;
+var n = 3004;
 var units = convertNum(n);
 console.log(units);

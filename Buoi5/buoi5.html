@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    span {
+      background-color: aqua;
+    }
+  </style>
+  <body>
+    <div id="text">
+      Đoàn quân Việt Nam đi, chung lòng cứu quốc, bước chân dồn vang trên đường
+      gập gềnh xa! Cờ in máu chiến thắng mang hồn nước. Súng ngoài xa chen khúc
+      quân hành ca. Đường vinh quang xây xác quân thù, thắng gian lao cùng nhau
+      lập chiến khu. Vì nhân dân chiến đấu không, tiến mau ra sa trường. Tiến
+      lên! cùng tiến lên!!! Nước non Việt Nam ta vững bền !!!!
+    </div>
+    <br />
+    <button onclick="karaoke()">Start</button>
+  </body>
+
+  <script>
+
+    //em dùng array nhưng thề độc là ko có dùng chatgpt đâu !!
+    var i = 0;
+    var position;
+
+    var parameter = function () {
+      var content =
+        "Đoàn quân Việt Nam đi, chung lòng cứu quốc, bước chân dồn vang trên đường gập gềnh xa! Cờ in máu chiến thắng mang hồn nước. Súng ngoài xa chen khúc quân hành ca. Đường vinh quang xây xác quân thù, thắng gian lao cùng nhau lập chiến khu. Vì nhân dân chiến đấu không, tiến mau ra sa trường. Tiến lên! cùng tiến lên!!! Nước non Việt Nam ta vững bền !!!!";
+      //phải đặt content bằng chuỗi vì lấy text từ thẻ div thì prettier nó tự thêm dấu xuống dòng và tab nên code chạy bị lỗi
+      content = content.trim();
+      var space = " ";
+      position = content.split(" ");
+    };
+
+    var runText = function () {
+      position[i] = `<span>${position[i]}</span>`;
+      var text = position.join(" ");
+      console.log(text);
+      document.getElementById("text").innerHTML = text;
+      position[i] = position[i].substring(6);
+      position[i] = position[i].slice(0, position[i].length - 7);
+      i++;
+
+      if (i < position.length) {
+        setTimeout(runText, 5);
+      } else {
+        i = 0;
+        setTimeout(runText, 5);
+      }
+    };
+
+    var karaoke = function () {
+      parameter();
+      runText();
+    };
+  </script>
+</html>
