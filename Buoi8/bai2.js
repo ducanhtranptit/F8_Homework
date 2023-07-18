@@ -44,128 +44,185 @@ var login = function (email, password, role) {
 };
 
 // Đăng ký người dùng
-const user1 = register(
+const userA = register(
   "Nguyen Van A",
   "123456",
   "nguyenvana@email.com",
   "user"
 );
-const user2 = register(
+
+const userB = register(
   "Nguyen Van B",
   "1234567",
   "nguyenvanb@email.com",
   "user"
 );
 
-const user3 = register(
+const userC = register(
   "Nguyen Van C",
   "12345678",
   "nguyenvanc@email.com",
   "user"
 );
 
-const user4 = register(
+const userD = register(
   "Nguyen Van D",
   "123456789",
   "nguyenvand@email.com",
   "user"
 );
 
-const user5 = register(
+const userE = register(
   "Nguyen Van E",
   "1234567890",
   "nguyenvane@email.com",
   "user"
 );
 
-const user6 = register(
+const userF = register(
   "Nguyen Van F",
   "abcdefgh",
   "nguyenvanf@email.com",
   "user"
 );
 
-const user7 = register(
+const userG = register(
   "Nguyen Van G",
   "abcdefg123",
   "nguyenvang@email.com",
   "user"
 );
 
-const user8 = register(
+const userH = register(
   "Nguyen Van H",
   "654321",
   "nguyenvanh@email.com",
   "user"
 );
 
-const user9 = register(
+const userI = register(
   "Nguyen Van I",
   "qwerty",
   "nguyenvani@email.com",
   "user"
 );
 
-const user10 = register(
+const userJ = register(
   "Nguyen Van J",
   "0987654321",
   "nguyenvanj@email.com",
   "user"
 );
 
-const user11 = register(
+const userK = register(
   "Nguyen Van K",
   "password",
   "nguyenvank@email.com",
   "user"
 );
 
-const user12 = register(
+const userL = register(
   "Nguyen Van L",
   "abcdef",
   "nguyenvanl@email.com",
   "user"
 );
 
-const user13 = register(
+const userM = register(
   "Nguyen Van M",
   "abc123",
   "nguyenvanm@email.com",
   "user"
 );
 
-const user14 = register(
+const userN = register(
   "Nguyen Van N",
   "123abc",
   "nguyenvann@email.com",
   "user"
 );
 
-const user15 = register(
+const userO = register(
   "Nguyen Van O",
   "test123",
   "nguyenvano@email.com",
   "user"
 );
 
-const user16 = register(
+const userP = register(
   "Nguyen Van P",
   "password123",
   "nguyenvanp@email.com",
   "user"
 );
 
-const user17 = register(
+const userQ = register(
   "Nguyen Van Q",
   "123456abc",
   "nguyenvanq@email.com",
   "user"
 );
 
-const user18 = register(
+const userR = register(
   "Nguyen Van R",
   "abcdef123456",
   "nguyenvanr@email.com",
+  "user"
+);
+
+const userS = register(
+  "Nguyen Van S",
+  "z3x2y1",
+  "nguyenvans@email.com",
+  "user"
+);
+
+const userT = register(
+  "Nguyen Van T",
+  "a1b2c3",
+  "nguyenvant@email.com",
+  "user"
+);
+
+const userU = register(
+  "Nguyen Van U",
+  "b2c3a1",
+  "nguyenvanu@email.com",
+  "user"
+);
+
+const userV = register(
+  "Nguyen Van V",
+  "c3a1b2",
+  "nguyenvanv@email.com",
+  "user"
+);
+
+const userW = register(
+  "Nguyen Van W",
+  "d4e5f6",
+  "nguyenvanw@email.com",
+  "user"
+);
+
+const userX = register(
+  "Nguyen Van X",
+  "e5f6d4",
+  "nguyenvanx@email.com",
+  "user"
+);
+
+const userY = register(
+  "Nguyen Van Y",
+  "f6d4e5",
+  "nguyenvany@email.com",
+  "user"
+);
+
+const userZ = register(
+  "Nguyen Van Z",
+  "g7h8i9",
+  "nguyenvanz@email.com",
   "user"
 );
 
