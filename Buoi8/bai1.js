@@ -4,7 +4,7 @@ function Customer(name, age, address) {
   this.address = address;
 }
 
-function createCustomers(customers) {
+var createCustomers = function (customers) {
   const customersObjects = customers.map(
     (customer) => new Customer(customer.name, customer.age, customer.address)
   );
@@ -19,9 +19,11 @@ function createCustomers(customers) {
   });
 
   return customersObjects;
-}
+};
 var customers = [
   { name: "Nguyễn Văn Anh", age: 11, address: "Ha Noi" },
   { name: "Nguyễn Văn Binh", age: 2, address: "Hai Phong" },
   { name: "Nguyễn Văn Chinh", age: 12, address: "TP.HCM" },
 ];
+
+console.log(createCustomers(customers));
