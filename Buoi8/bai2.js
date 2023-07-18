@@ -14,6 +14,7 @@ var register = function (name, password, email, role) {
   }
 
   var existingUser = data.find((user) => user.email === email);
+
   if (existingUser) {
     console.error("Email đã tồn tại trong hệ thống");
     return;
@@ -25,10 +26,15 @@ var register = function (name, password, email, role) {
   return newUser;
 };
 
-var login = function (email, password) {
+var login = function (email, password, role) {
   var loggedUser = data.find(
     (user) => user.email === email && user.password === password
   );
+
+  if (role !== "user") {
+    console.error("Bạn không phải là người dùng hợp lệ");
+    return;
+  }
 
   if (!loggedUser) {
     console.error("thông tin đăng nhập không hợp lệ");
@@ -52,8 +58,5 @@ const user2 = register(
 );
 
 // Đăng nhập
-const loggedInUser = login("nguyenvanb@email.com", "1234567");
-
-console.log("");
-console.log("data =", data);
+const loggedInUser = login("nguyenvanb@email.com", "1234567", "hacker");
 console.log("dataLogin =", loggedInUser);
