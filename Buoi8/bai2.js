@@ -170,5 +170,9 @@ const user18 = register(
 );
 
 // Đăng nhập
-const loggedInUser = login("nguyenvanb@email.com", "1234567", "user");
-console.log("dataLogin =", loggedInUser);
+const loggedInUser1 = login("nguyenvanb@email.com", "1234567", "user");
+console.log("dataLogin =", loggedInUser1);
+
+// Đăng nhập
+const loggedInUser2 = login("nguyenvanl@email.com", "abcdef", "hacker");
+console.log("dataLogin =", loggedInUser2);
