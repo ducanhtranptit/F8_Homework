@@ -1,12 +1,13 @@
-function User(name, password, email) {
+function User(name, password, email, role) {
   this.name = name;
   this.password = password;
   this.email = email;
+  this.role = role;
 }
 
 var data = [];
 
-var register = function (name, password, email) {
+var register = function (name, password, email, role) {
   if (!name || !password || !email) {
     console.error("Thông tin không đầy đủ");
     return;
@@ -18,7 +19,7 @@ var register = function (name, password, email) {
     return;
   }
 
-  var newUser = new User(name, password, email);
+  var newUser = new User(name, password, email, role);
   data.push(newUser);
 
   return newUser;
@@ -37,8 +38,18 @@ var login = function (email, password) {
 };
 
 // Đăng ký người dùng
-const user1 = register("Nguyen Van A", "123456", "nguyenvana@email.com");
-const user2 = register("Nguyen Van B", "1234567", "nguyenvanb@email.com");
+const user1 = register(
+  "Nguyen Van A",
+  "123456",
+  "nguyenvana@email.com",
+  "user"
+);
+const user2 = register(
+  "Nguyen Van B",
+  "1234567",
+  "nguyenvanb@email.com",
+  "user"
+);
 
 // Đăng nhập
 const loggedInUser = login("nguyenvanb@email.com", "1234567");
