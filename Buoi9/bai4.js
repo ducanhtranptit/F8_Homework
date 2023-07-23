@@ -1,4 +1,4 @@
-var getCurrency = function (currency) {
+Object.prototype.getCurrency = function (currency) {
   var inputValue = String(this);
   var numbers = "0123456789";
   for (var i = 0; i < inputValue.length; i++) {
@@ -23,9 +23,6 @@ var getCurrency = function (currency) {
 
   return formatValue + " " + currency;
 };
-
-Number.prototype.getCurrency = getCurrency;
-String.prototype.getCurrency = getCurrency;
 
 var price1 = 12000;
 console.log(price1.getCurrency("đ"));
