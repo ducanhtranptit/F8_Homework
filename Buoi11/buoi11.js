@@ -14,7 +14,7 @@ function shotUrl(url) {
     });
 }
 
-const url = "https://www.facebook.com/ducanh.tran.927/";
+const url = "https://www.facebook.com/ngochongz";
 
 shotUrl(url)
   .then((result) => console.log(`Shorten link: ${result}`))
