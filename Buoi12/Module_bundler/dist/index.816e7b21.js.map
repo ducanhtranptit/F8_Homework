@@ -1,0 +1,1 @@
+{"mappings":"AAAA,MAAM,aAAa,CAAC;IAClB,OAAO;AACT;AAEA,WAAW","sources":["src/app.js"],"sourcesContent":["const getMessage = (msg) => {\r\n  return msg;\r\n};\r\n\r\ngetMessage(\"hello world\");\r\n"],"names":[],"version":3,"file":"index.816e7b21.js.map","sourceRoot":"/__parcel_source_root/"}
