@@ -7,6 +7,7 @@ class User {
       office: "123 add",
       phone: "9999999999",
       email: "abc@email",
+      page: "my page",
     };
     this.profile = {
       facebook: "https://www.facebook.com",
