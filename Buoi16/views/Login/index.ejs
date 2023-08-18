@@ -107,7 +107,7 @@
         <h1>Nhập thông tin đăng nhập</h1>
         <div class="content">
           <% if (errorMessage) { %>
-          <p style="color: red"><%= errorMessage %></p>
+          <p style="color: red"><%= errorMessage ?? "" %></p>
           <% } %>
 
           <div class="input-field">
