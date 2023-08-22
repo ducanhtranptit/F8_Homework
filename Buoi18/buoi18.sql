@@ -1,4 +1,4 @@
--- CREATE DATABASE database_01_tenhocvien;
+CREATE DATABASE database_01_tenhocvien;
 USE database_01_tenhocvien;
 
 CREATE TABLE courses (
@@ -58,7 +58,3 @@ UPDATE teacher SET bio = 'New Bio 3' WHERE id = 3;
 
 SELECT * FROM teacher;
 SELECT * FROM courses;
-
-USE database_01_tenhocvien;
-DROP TABLE courses;
-DROP TABLE teacher;
