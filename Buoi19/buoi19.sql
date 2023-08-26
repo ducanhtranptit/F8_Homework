@@ -1,6 +1,6 @@
-CREATE DATABASE database_02_tenhocvien;
+CREATE DATABASE database_02_DucAnhTran;
 
-USE database_02_tenhocvien;
+USE database_02_DucAnhTran;
 
 CREATE TABLE
   customers (
@@ -55,4 +55,4 @@ DESCRIBE orders;
 
 DESCRIBE order_details;
 
--- DROP DATABASE database_02_tenhocvien;
+-- DROP DATABASE database_02_DucAnhTran;
