@@ -25,10 +25,10 @@ CREATE TABLE
   orders (
     order_id INT PRIMARY KEY,
     customer_id INT NOT NULL,
-    total_quantity INT NOT NULL,
-    total_amount DECIMAL(10, 2) NOT NULL,
-    order_status VARCHAR(50) NOT NULL,
-    order_time DATETIME NOT NULL,
+    total_quantity INT NOT NULL, --tổng số lượng sản phẩm
+    total_amount DECIMAL(10, 2) NOT NULL, -- tổng giá trị của đơn hàng
+    order_status VARCHAR(50) NOT NULL, -- trạng thái đơn hàng
+    order_time DATETIME NOT NULL, --thời gian đặt hàng
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
     FOREIGN KEY (customer_id) REFERENCES customers (customer_id)
@@ -38,8 +38,8 @@ CREATE TABLE
   order_details (
     order_id INT NOT NULL,
     product_id INT NOT NULL,
-    quantity INT NOT NULL,
-    amount DECIMAL(10, 2) NOT NULL,
+    quantity INT NOT NULL, --số lượng sản phẩm chi tiết trong đơn hàng
+    amount DECIMAL(10, 2) NOT NULL, --số tiền chi tiết của đơn hàng
     created_at TIMESTAMP,
     updated_at TIMESTAMP,
     PRIMARY KEY (order_id, product_id),
