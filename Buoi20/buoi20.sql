@@ -107,7 +107,8 @@ FROM
   Products;
 
 SELECT
-  *
+  `AttributeName`,
+  `AttributeID`
 FROM
   Attributes,
   ProductAttributes
