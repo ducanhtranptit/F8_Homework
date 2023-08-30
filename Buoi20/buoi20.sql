@@ -4,30 +4,34 @@ USE database_03_tenhocvien;
 
 CREATE TABLE
   Products (
-    `ProductID` INT AUTO_INCREMENT PRIMARY KEY,
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
     `ProductName` VARCHAR(255),
     `OriginalPrice` DECIMAL(10, 2),
     `SalePrice` DECIMAL(10, 2),
     `Description` TEXT,
     `Quantity` INT,
     `Instructions` TEXT,
-    `UpdateTime` TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    `created_at` TIMESTAMP,
+    `updated_at` TIMESTAMP
   );
 
 CREATE TABLE
   Attributes (
-    `AttributeID` INT AUTO_INCREMENT PRIMARY KEY,
-    `AttributeName` VARCHAR(255)
+    `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `AttributeName` VARCHAR(255),
+    `created_at` TIMESTAMP,
+    `updated_at` TIMESTAMP
   );
 
 CREATE TABLE
   ProductAttributes (
     `ProductID` INT,
     `AttributeID` INT,
-    `AttributeValue` VARCHAR(255),
+    `created_at` TIMESTAMP,
+    `updated_at` TIMESTAMP,
     PRIMARY KEY (ProductID, AttributeID),
-    FOREIGN KEY (ProductID) REFERENCES Products (ProductID),
-    FOREIGN KEY (AttributeID) REFERENCES Attributes (AttributeID)
+    FOREIGN KEY (ProductID) REFERENCES Products (id),
+    FOREIGN KEY (AttributeID) REFERENCES Attributes (id)
   );
 
 INSERT INTO
@@ -37,7 +41,9 @@ INSERT INTO
     `SalePrice`,
     `Description`,
     `Quantity`,
-    `Instructions`
+    `Instructions`,
+    `created_at`,
+    `updated_at`
   )
 VALUES
   (
@@ -46,7 +52,9 @@ VALUES
     8.99,
     'Description 1',
     5,
-    'Instructions 1'
+    'Instructions 1',
+    NOW (),
+    NOW ()
   ),
   (
     'Product 2',
@@ -54,7 +62,9 @@ VALUES
     12.99,
     'Description 2',
     0,
-    'Instructions 2'
+    'Instructions 2',
+    NOW (),
+    NOW ()
   ),
   (
     'Product 3',
@@ -62,22 +72,34 @@ VALUES
     18.99,
     'Description 3',
     3,
-    'Instructions 3'
+    'Instructions 3',
+    NOW (),
+    NOW ()
   );
 
 INSERT INTO
-  Attributes (`AttributeName`)
+  Attributes (`AttributeName`, `created_at`, `updated_at`)
 VALUES
-  ('attribute 1'),
-  ('attribute 2'),
-  ('attribute 3');
+  ('attribute 1', NOW (), NOW ()),
+  ('attribute 2', NOW (), NOW ()),
+  ('attribute 3', NOW (), NOW ());
 
 INSERT INTO
-  ProductAttributes (`ProductID`, `AttributeID`, `AttributeValue`)
+  ProductAttributes (
+    `ProductID`,
+    `AttributeID`,
+    `created_at`,
+    `updated_at`
+  )
 VALUES
-  (2, 1, 'Value 1'),
-  (2, 2, 'Value 2'),
-  (2, 3, 'Value 3');
+  (2, 1, NOW (), NOW ()),
+  (2, 2, NOW (), NOW ()),
+  (2, 3, NOW (), NOW ()),
+  (1, 1, NOW (), NOW ()),
+  (1, 2, NOW (), NOW ()),
+  (3, 1, NOW (), NOW ()),
+  (3, 2, NOW (), NOW ()),
+  (3, 3, NOW (), NOW ());
 
 SELECT
   *
@@ -85,13 +107,13 @@ FROM
   Products;
 
 SELECT
-  Attributes.AttributeName,
-  ProductAttributes.AttributeValue
+  *
 FROM
-  Attributes
-  INNER JOIN ProductAttributes ON Attributes.AttributeID = ProductAttributes.AttributeID
+  Attributes,
+  ProductAttributes
 WHERE
-  ProductAttributes.ProductID = 2;
+  Attributes.id = ProductAttributes.AttributeID
+  AND ProductAttributes.ProductID = 2;
 
 SELECT
   *
