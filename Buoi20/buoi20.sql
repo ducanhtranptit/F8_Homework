@@ -5,11 +5,12 @@ USE database_03_tenhocvien;
 CREATE TABLE
   Products (
     `id` INT AUTO_INCREMENT PRIMARY KEY,
+    `code` INT UNIQUE,
     `ProductName` VARCHAR(255),
     `OriginalPrice` DECIMAL(10, 2),
     `SalePrice` DECIMAL(10, 2),
     `Description` TEXT,
-    `Quantity` INT,
+    `Quantity` INT DEFAULT = 0,
     `Instructions` TEXT,
     `created_at` TIMESTAMP,
     `updated_at` TIMESTAMP
