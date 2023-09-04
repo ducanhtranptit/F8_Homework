@@ -15,10 +15,6 @@ module.exports = {
     if (user) {
       return res.redirect("/home");
     } else {
-      req.flash(
-        "errorMessage",
-        "Đăng nhập thất bại. Vui lòng kiểm tra lại thông tin đăng nhập."
-      );
       return res.render("Login/index");
     }
   },
@@ -27,7 +23,6 @@ module.exports = {
     const { email, password } = req.body;
 
     if (email === "" || password === "") {
-      req.flash("errorMessage", "Vui lòng nhập cả email và mật khẩu.");
       return res.render("Login/index");
     } else {
       req.session.email = email;
