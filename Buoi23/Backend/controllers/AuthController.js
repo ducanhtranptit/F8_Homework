@@ -23,15 +23,18 @@ module.exports = {
         } else {
           res.redirect("/");
         }
-      } else if (index === -1) {
+      } else if (index === -1 && passwords[index] === password) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai email");
         res.render("auth/index", { error: req.flash("error") });
-      } else {
+      } else if (index !== -1 && passwords[index] !== password) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai mật khẩu");
+        res.render("auth/index", { error: req.flash("error") });
+      } else {
+        req.flash("error", "Bạn đã nhập sai cả email và mật khẩu");
         res.render("auth/index", { error: req.flash("error") });
       }
     } else {
