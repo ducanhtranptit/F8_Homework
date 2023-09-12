@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Customer List</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+      }
+
+      th,
+      td {
+        padding: 10px;
+        text-align: left;
+        border-bottom: 1px solid #6f0c0c;
+        border-right: 1px solid #6f0c0c;
+      }
+
+      th:last-child,
+      td:last-child {
+        border-right: none;
+      }
+
+      th {
+        background-color: #4caf50;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Customer List</h1>
+    <table>
+      <tr>
+        <th>STT</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Password</th>
+      </tr>
+      <% customerList.forEach(function(customer, index) { %>
+      <tr>
+        <td><%= index + 1 %></td>
+        <td><%= customer.name %></td>
+        <td><%= customer.email %></td>
+        <td><%= '*********' %></td>
+      </tr>
+      <% }); %>
+    </table>
+  </body>
+</html>

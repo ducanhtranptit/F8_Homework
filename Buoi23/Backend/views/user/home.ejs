@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tin Tức</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      header {
+        background-color: #e47230;
+        color: white;
+        text-align: center;
+        padding: 10px;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      .article {
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin-bottom: 20px;
+        padding: 20px;
+        overflow: hidden;
+      }
+
+      .article img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+
+      .article h2 {
+        font-size: 24px;
+        margin: 10px 0;
+      }
+
+      .article p {
+        font-size: 16px;
+        line-height: 1.5;
+        margin: 0;
+      }
+
+      form button[type="submit"] {
+        background-color: red;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+      }
+
+      form button[type="submit"]:hover {
+        background-color: #d32f2f;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Tin Tức Lớp Backend F8 K1</h1>
+    </header>
+
+    <form action="" method="post">
+      <button type="submit">Đăng xuất</button>
+    </form>
+
+    <div class="container">
+      <div class="article">
+        <img
+          src="data:image/jpeg;base64,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"
+          alt="Hình ảnh bài viết 1"
+        />
+        <h2>Vấn đề nan giải của Backend developer khi làm việc với CSS</h2>
+        <p>
+          Backend developers thường gắn liền với việc xây dựng hệ thống, xử lý dữ liệu và
+          tương tác với cơ sở dữ liệu. Tuy nhiên, khi họ phải làm việc với CSS - một phần
+          không thể thiếu trong phát triển web - một số vấn đề có thể trở thành thách thức
+          đối với họ.
+        </p>
+        <p>
+          Một vấn đề nan giải là sự khác biệt giữa cách làm việc của backend và frontend.
+          Backend developers thường tập trung vào xử lý logic, điều khiển dữ liệu và quản
+          lý server. Khi làm việc với CSS, họ phải học cách tạo ra giao diện người dùng
+          hấp dẫn và tương tác. Điều này yêu cầu họ hiểu rõ về các khái niệm như lựa chọn
+          phần tử, kiểm soát layout và hiệu ứng trực quan.
+        </p>
+        <p>
+          Cách thức quản lý CSS cũng có thể gây khó khăn. Backend developers thường quen
+          thuộc với việc quản lý mã nguồn trong các tệp script hoặc logic, nhưng CSS có
+          cấu trúc phân tầng và có thể phức tạp. Họ cần học cách tổ chức CSS để tránh xung
+          đột và đảm bảo dễ dàng bảo trì trong tương lai.
+        </p>
+        <p>
+          Một vấn đề khác là kiến thức về responsive design và cross-browser
+          compatibility. Backend developers cần phải hiểu cách xây dựng giao diện sao cho
+          phản ánh tốt trên nhiều thiết bị và trình duyệt khác nhau. Điều này đòi hỏi họ
+          phải nắm vững kiến thức về media queries, flexbox, grid, và các kỹ thuật khác.
+        </p>
+        <p>
+          Trong tổng hợp, vấn đề nan giải khi Backend developers làm việc với CSS bao gồm
+          cách làm việc khác biệt, quản lý mã nguồn CSS phức tạp và kiến thức về thiết kế
+          đáp ứng và tương thích với nhiều trình duyệt. Tuy nhiên, vượt qua các thách thức
+          này có thể giúp họ trở thành những lập trình viên đa năng và toàn diện hơn trong
+          việc xây dựng ứng dụng web.
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
