@@ -32,14 +32,16 @@ CREATE TABLE IF NOT EXISTS `customers` (
   `updated_at` timestamp NULL DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
--- Dumping data for table f8_orders.customers: ~4 rows (approximately)
+-- Dumping data for table f8_orders.customers: ~6 rows (approximately)
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `password`, `status`, `deleted_at`, `created_at`, `updated_at`) VALUES
-	(1, 'Tran Duc Anh', 'tda.ducanh@gmail.com', '097241460', '123456', 1, NULL, '2023-08-28 04:27:39', '2023-08-28 04:27:42'),
-	(3, 'Hoang Tien Dat', 'hoangtiendat@gmail.com', '0972414260', '123456', 0, NULL, '2023-08-28 04:33:30', '2023-08-28 04:33:32'),
-	(4, 'Nguyen Tuan Anh', 'dantruong@gmail.com', '0972424260', '123456', 1, NULL, '2023-08-28 08:03:55', '2023-08-28 08:03:56'),
-	(5, 'Tran Duc Anh(admin)', 'admin@gmail.com', '0972414260', '25042002', 1, NULL, '2023-09-12 00:43:52', '2023-09-12 00:43:53');
+	(1, 'Tran Duc Anh', 'tda.ducanh@gmail.com', '097241460', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, '2023-08-28 04:27:39', '2023-08-28 04:27:42'),
+	(3, 'Hoang Tien Dat', 'hoangtiendat@gmail.com', '0972414260', 'e10adc3949ba59abbe56e057f20f883e', 0, NULL, '2023-08-28 04:33:30', '2023-08-28 04:33:32'),
+	(4, 'Nguyen Tuan Anh', 'dantruong@gmail.com', '0972424260', 'e10adc3949ba59abbe56e057f20f883e', 1, NULL, '2023-08-28 08:03:55', '2023-08-28 08:03:56'),
+	(5, 'Tran Duc Anh(admin)', 'admin@gmail.com', '0972414260', '33cf7f2d6fc15cb70e39f1d45a5ac8b6', 1, NULL, '2023-09-12 00:43:52', '2023-09-12 00:43:53'),
+	(6, 'Nguyen Van A', 'vana@gmail.com', '0123456789', 'e10adc3949ba59abbe56e057f20f883e', 0, NULL, '2023-09-13 03:48:07', '2023-09-13 03:48:08'),
+	(7, 'Nguyen Van B', 'vanb@gmail.com', '0655626653', 'e10adc3949ba59abbe56e057f20f883e', 1, '2023-04-22 18:55:23', '2023-09-13 03:49:02', '2023-09-13 03:49:06');
 
 -- Dumping structure for table f8_orders.order
 CREATE TABLE IF NOT EXISTS `order` (
