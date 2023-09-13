@@ -22,18 +22,18 @@ module.exports = {
 
     if (email && password) {
       const index = emails.findIndex((e) => e === email);
-      if (index !== -1 && encryptPassword(passwords[index]) === password) {
+      if (index !== -1 && passwords[index] === encryptPassword(password)) {
         if (email === "admin@gmail.com") {
           res.redirect("/admin");
         } else {
           res.redirect("/");
         }
-      } else if (index === -1 && encryptPassword(passwords[index]) === password) {
+      } else if (index === -1 && passwords[index] === encryptPassword(password)) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai email");
         res.render("auth/index", { error: req.flash("error") });
-      } else if (index !== -1 && encryptPassword(passwords[index]) !== password) {
+      } else if (index !== -1 && passwords[index] !== encryptPassword(password)) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai mật khẩu");
