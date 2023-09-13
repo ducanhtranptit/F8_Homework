@@ -1,5 +1,6 @@
 const Customer = require("../models/Customer");
 const flash = require("connect-flash");
+const crypto = require("crypto-js");
 
 module.exports = {
   login: async (req, res) => {
@@ -9,6 +10,10 @@ module.exports = {
     const emails = [];
     const passwords = [];
 
+    const encryptPassword = (password) => {
+      return crypto.MD5(password).toString();
+    };
+
     customerList.forEach((customer) => {
       const { email: customerEmail, password: customerPassword } = customer.dataValues;
       emails.push(customerEmail);
@@ -17,18 +22,18 @@ module.exports = {
 
     if (email && password) {
       const index = emails.findIndex((e) => e === email);
-      if (index !== -1 && passwords[index] === password) {
+      if (index !== -1 && encryptPassword(passwords[index]) === password) {
         if (email === "admin@gmail.com") {
           res.redirect("/admin");
         } else {
           res.redirect("/");
         }
-      } else if (index === -1 && passwords[index] === password) {
+      } else if (index === -1 && encryptPassword(passwords[index]) === password) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai email");
         res.render("auth/index", { error: req.flash("error") });
-      } else if (index !== -1 && passwords[index] !== password) {
+      } else if (index !== -1 && encryptPassword(passwords[index]) !== password) {
         delete req.session.email;
         delete req.session.password;
         req.flash("error", "Bạn đã nhập sai mật khẩu");
