@@ -16,7 +16,7 @@ module.exports = {
     if (user?.dataValues && user.status === 1) {
       req.session.userLogin = user.dataValues;
     } else if (user?.dataValues && user.status === 0) {
-      req.flash("msg", "tài khoản chưa được kích hoạt");
+      req.flash("msg", "tài khoản chưa kích hoạt");
     } else {
       req.flash("msg", "Email hoặc mật khẩu không chính xác");
     }
