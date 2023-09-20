@@ -9,8 +9,8 @@
     <div class="col-3">
       <select name="status" class="form-select">
         <option value="all">Tất cả trạng thái</option>
-        <option value="active" <%= req.query.status === 'active' ? 'selected': ''%>>Kich hoat</option>
-        <option value="inactive" <%= req.query.status === 'inactive' ? 'selected': ''%>>Chua kich hoat</option>
+        <option value="active" <%= req.query.status === 'active' ? 'selected': ''%>>Kích hoạt</option>
+        <option value="inactive" <%= req.query.status === 'inactive' ? 'selected': ''%>>Chưa kích hoạt</option>
       </select>
     </div>
     <div class="col-7">
@@ -23,7 +23,7 @@
       />
     </div>
     <div class="col-2 d-grid">
-      <button type="submit" class="btn btn-primary">Tim kiem</button>
+      <button type="submit" class="btn btn-primary">Tìm kiếm</button>
     </div>
   </div>
 </form>
