@@ -1,0 +1,47 @@
+<h1>Gửi email</h1>
+<% if(msg?.length) { %>
+<div class="alert alert-danger text-center"><%= msg %></div>
+<% } %>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="">Email nhận</label>
+    <input
+      type="text"
+      name="email"
+      class="form-control"
+      placeholder="Nhập email gửi ..."
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="">Tiêu đề</label>
+    <input
+      type="text"
+      name="title"
+      class="form-control"
+      placeholder="Nhập tiêu đề ..."
+      required
+    />
+  </div>
+  <div class="mb-3">
+    <label for="">Nội dung</label>
+    <input
+      type="text"
+      name="content"
+      class="form-control"
+      placeholder="Nhập nội dung ..."
+      required
+    />
+  </div>
+
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Gửi</button>
+  </div>
+</form>
+<!-- tại vì không biết làm sao cho 2 nút cách nhau được =)) -->
+<br />
+<form action="/" method="get">
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Về trang chủ</button>
+  </div>
+</form>

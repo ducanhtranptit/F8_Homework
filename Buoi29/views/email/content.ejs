@@ -1,0 +1,44 @@
+<head>
+  <style>
+    .email-container {
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    h2 {
+      font-size: 18px;
+      margin-bottom: 5px;
+    }
+
+    p {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="email-container">
+    <h1>Email gửi đến:</h1>
+    <p><%= emailAddress %></p>
+
+    <h2>Tiêu đề:</h2>
+    <p><%= emailTitle %></p>
+
+    <h2>Nội dung:</h2>
+    <p><%= emailContent %></p>
+  </div>
+
+  <form action="/" method="get">
+    <div class="d-grid">
+      <button type="submit" class="btn btn-primary">Về trang chủ</button>
+    </div>
+  </form>
+</body>

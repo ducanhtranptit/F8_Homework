@@ -1,0 +1,29 @@
+<h1>Danh sách email đã gửi</h1>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th width="5%">STT</th>
+      <th>Email</th>
+      <th>Tiêu đề</th>
+      <th>Nội dung</th>
+      <th width="10%">Thời gian gửi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% userEmailList.forEach((email, index) => { %>
+    <tr>
+      <td><%= index+1 %></td>
+      <td><%= email.email %></td>
+      <td><%= email.title %></td>
+      <td><a href="/content/<%= email.id %>">Xem chi tiết</a></td>
+      <td><%= moment(email.createdAt).format('DD/MM/YYYY hh:mm:ss') %></td>
+    </tr>
+    <% }) %>
+  </tbody>
+</table>
+<form action="/" method="get">
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary">Về trang chủ</button>
+  </div>
+</form>
