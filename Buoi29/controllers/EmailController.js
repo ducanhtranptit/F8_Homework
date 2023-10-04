@@ -1,8 +1,6 @@
 const nodemailer = require("nodemailer");
 const moment = require("moment");
-
 const model = require("../models/index");
-const e = require("express");
 
 class EmailController {
   async home(req, res) {
@@ -36,13 +34,15 @@ class EmailController {
       subject: title,
       html: content,
     });
+
+    console.log(info);
+
     req.flash("msg", "Đã gửi thành công email");
     res.redirect("./send-email");
   }
 
   async getEmailList(req, res) {
     const userEmail = await model.Mail;
-    console.log(userEmail);
     const userEmailList = await userEmail.findAll();
     res.render("email/emailList", {
       pageTitle: "Email list",
