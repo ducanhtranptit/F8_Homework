@@ -105,12 +105,6 @@ class AuthController {
     const { email, newPassword } = req.body;
 
     if (email && newPassword) {
-      const user = await User.findOne({
-        where: {
-          email,
-        },
-      });
-
       if (user) {
         await User.update(
           { password: newPassword },
