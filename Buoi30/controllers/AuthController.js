@@ -76,7 +76,7 @@ class AuthController {
         from: `"${process.env.MAIL_FROM_NAME}" <${process.env.MAIL_FROM}>`,
         to: email,
         subject: "Forgot password",
-        html: `Link lấy lại mật khẩu: http://localhost:3000/login/create-newpassword/:${token}`,
+        html: `Link lấy lại mật khẩu: http://localhost:3000/login/create-newpassword/${token}`,
       });
 
       req.flash("msg", "Đã gửi thành công email");
