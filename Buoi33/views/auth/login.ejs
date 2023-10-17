@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= typeof pageTitle !== "undefined" ? pageTitle: 'F8 Education' %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container py-3">
+      <div class="row justify-content-center">
+        <div class="row">
+        </div>
+        <div class="col-6">
+          <div class="row justify-content-center">
+            <div class="col-6">
+              <h2 class="text-center">Đăng nhập hệ thống</h2>
+            </div>
+            <form action="" method="post">
+              <div class="mb-3">
+                <label for="">Email</label>
+                <input type="email" class="form-control" name="email" placeholder="Email" />
+              </div>
+              <div class="mb-3">
+                <label for="">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  placeholder="password"
+                />
+              </div>
+              <div class="d-grid">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+              <form action="" method="post">
+              </form>
+            </form>
+          </div>
+          <a href="/auth/register">Đăng kí tài khoản</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
