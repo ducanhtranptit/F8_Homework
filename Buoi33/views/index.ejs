@@ -9,13 +9,34 @@
 </head>
 <body>
   <div class="container">
-    <h1>URL Shrinker</h1>
-    <a href="/auth/logout">Logout</a>
+    <h1>Rút gọn Url</h1>
+    <a href="/auth/logout">Đăng xuất</a>
     <form action="" method="POST" class="my-4 form-inline">
       <label for="fullUrl" class="sr-only">Url</label>
       <input required placeholder="Url" type="url" name="fullUrl" id="fullUrl" class="form-control col mr-2">
-      <button class="btn btn-success" type="submit">Shrink</button>
+      <button class="btn btn-success" type="submit">Chuyển đổi</button>
     </form>
   </div>
+
+  <h3 class="mb-3">Những Url mà bạn đã chuyển đổi</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Url</th>
+        <th>Url short</th>
+      </tr>
+    </thead>
+  
+    <tbody>
+      <% links.forEach(({url, shorturl}) => { %>
+      <tr>
+        <td><%= url %></td>
+        <td><%= shorturl %></td>
+      </tr>
+  
+      <% }) %>
+    </tbody>
+
 </body>
 </html>
