@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= typeof pageTitle !== "undefined" ? pageTitle: 'F8 Education' %></title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css"
+    />
+  </head>
+  <body>
+    <div class="container py-3">
+      <div class="row justify-content-center">
+        <div class="row">
+          <div class="col-3">
+            <nav>
+              <ul class="nav flex-column">
+                <li><a href="/">trang chủ</a></li>
+
+                <% if(permissionList.include("read")){ %>
+                    <li><a href="/users">quản lý người dùng</a></li>
+                    <li><a href="/role">quản lý Role</a></li>
+                <% }; %>
+
+
+                <a href="/auth/logout">Đăng xuất</a>
+              </ul>
+            </nav>
+          </div>
+        </div>
+        <div class="col-6"><%- body %></div>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>

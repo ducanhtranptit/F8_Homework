@@ -1,0 +1,45 @@
+<h2>Cập nhật Role</h2>
+<form action="" method="post">
+  <div class="mb-3">
+    <label for="">Tên</label>
+    <input type="text" name="name" placeholder="Tên Role..." class="form-control" value="<%= role.name %>" required />
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th width="20%">Module</th>
+        <th>Quyền</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Quản lý User</td>
+        <td>
+          <div class="row">
+            <div class="col">
+              <label>
+                <input type="checkbox" name="permission" value="read" <%= permissionUtil(permissions, "read") ? 'checked': '' %> /> Xem
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="checkbox" name="permission" value="add" <%= permissionUtil(permissions, "add") ? 'checked': '' %> /> Thêm
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="checkbox" name="permission" value="update" <%= permissionUtil(permissions, "update") ? 'checked': '' %> /> Sửa
+              </label>
+            </div>
+            <div class="col">
+              <label>
+                <input type="checkbox" name="permission" value="delete" <%= permissionUtil(permissions, "delete") ? 'checked': '' %> /> Xóa
+              </label>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="submit" class="btn btn-primary">Lưu thay đổi</button>
+</form>

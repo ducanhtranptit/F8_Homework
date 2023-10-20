@@ -1,0 +1,25 @@
+<h2>Quản lý role</h2>
+<a href="/role/add" class="btn btn-primary mb-3">Thêm mới</a>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Tên</th>
+      <th width="5%">Sửa</th>
+      <th width="5%">Xóa</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% roles.forEach(({ id, name }, index) => { %>
+    <tr>
+      <td><%= name %></td>
+      <td><a href="role/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
+      <td>
+        <a href="" class="btn btn-danger delete-action">Xóa</a>
+        <form action="role/delete/<%= id %>" method="post"></form>
+      </td>
+    </tr>
+
+    <% }) %>
+  </tbody>
+</table>
