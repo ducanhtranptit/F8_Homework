@@ -2,15 +2,17 @@ const model = require("../models/index");
 const Role = model.Role;
 const Permission = model.Permission;
 const User = model.User;
-const roleNames = require("../utils/role");
+const getRoleNames = require("../utils/role");
 
 module.exports = {
 	index: async (req, res) => {
 		const roles = await Role.findAll();
+		const roleNames = await getRoleNames(req, res);
 		res.render("roles/index", { roles, roleNames });
 	},
 
 	add: async (req, res) => {
+		const roleNames = await getRoleNames(req, res);
 		res.render("roles/addRole", { roleNames });
 	},
 
@@ -71,6 +73,8 @@ module.exports = {
 				return permissionData.value;
 			}
 		};
+
+		const roleNames = await getRoleNames(req, res);
 
 		res.render("roles/editRole", {
 			role,

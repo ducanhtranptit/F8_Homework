@@ -2,12 +2,13 @@ const model = require("../models/index");
 const User = model.User;
 const Role = model.Role;
 const { isRole } = require("../utils/permission");
-const roleNames = require("../utils/role");
+const getRoleNames = require("../utils/role");
 
 module.exports = {
 	index: async (req, res) => {
 		const permissionList = req.user.permissions;
 		const users = await User.findAll();
+		const roleNames = await getRoleNames(req, res);
 		res.render("users/index", { users, permissionList, roleNames });
 	},
 
@@ -23,6 +24,7 @@ module.exports = {
 				model: Role,
 			},
 		});
+		const roleNames = await getRoleNames(req, res);
 		res.render("users/permission", { roles, user, isRole, roleNames }); //enhanced literal object
 	},
 

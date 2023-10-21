@@ -2,7 +2,7 @@ const model = require("../models/index");
 const User = model.User;
 const Role = model.Role;
 const Permission = model.Permission;
-const roleNames = require("../utils/role");
+const getRoleNames = require("../utils/role");
 
 module.exports = {
 	getUserPermission: async (req, res) => {
@@ -39,6 +39,8 @@ module.exports = {
 			permissions = [...new Set(permissions.flat(Infinity))];
 			req.user.permissions = permissions;
 			const permissionList = req.user.permissions;
+			const roleNames = await getRoleNames(req, res);
+			console.log(roleNames);
 			res.render("index", {
 				title: "Express",
 				permissionList,
