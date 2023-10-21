@@ -31,8 +31,6 @@ module.exports = {
 					email: email,
 					password: hashPassword,
 				});
-				console.log(newUser.name, newUser.password, newUser.password);
-				console.log(name, email, password);
 				res.redirect("/auth/login");
 			}
 		}

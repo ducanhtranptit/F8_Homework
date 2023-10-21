@@ -40,7 +40,6 @@ module.exports = {
 			req.user.permissions = permissions;
 			const permissionList = req.user.permissions;
 			const roleNames = await getRoleNames(req, res);
-			console.log(roleNames);
 			res.render("index", {
 				title: "Express",
 				permissionList,

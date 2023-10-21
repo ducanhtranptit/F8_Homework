@@ -21,7 +21,7 @@
                 <% if(roleNames.includes("super admin")) { %>
                     <li><a href="/users">Quản lý người dùng</a></li>
                     <li><a href="/role">Quản lý Role</a></li>
-                <% } else {%>
+                <% } else if(permissionList.includes("read")) {%>
                     <li><a href="/users">Danh sách người dùng</a></li>
                 <% } %>
                 <a href="/auth/logout">Đăng xuất</a>

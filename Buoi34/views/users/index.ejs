@@ -1,7 +1,7 @@
 <h2>Danh sách người dùng</h2>
 
 <% if(permissionList.includes("add")) { %>
-    <a href="" class="btn btn-primary">Thêm mới</a>
+    <a href="/users/add" class="btn btn-primary">Thêm mới</a>
 <% } %>
 <hr />
 
@@ -31,7 +31,7 @@
 
       <% if(permissionList.includes("update")) { %>
         <td><a href="/users/permission/<%= id %>" class="btn btn-primary">Phân quyền</a></td>
-        <td><a href="" class="btn btn-warning">Sửa</a></td>
+        <td><a href="/users/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
       <% } %>
 
       <% if(permissionList.includes("update")) { %>

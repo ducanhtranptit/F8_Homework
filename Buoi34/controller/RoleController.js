@@ -8,18 +8,19 @@ module.exports = {
 	index: async (req, res) => {
 		const roles = await Role.findAll();
 		const roleNames = await getRoleNames(req, res);
-		res.render("roles/index", { roles, roleNames });
+		const permissionList = req.user.permissions;
+		res.render("roles/index", { roles, roleNames, permissionList });
 	},
 
 	add: async (req, res) => {
 		const roleNames = await getRoleNames(req, res);
-		res.render("roles/addRole", { roleNames });
+		const permissionList = req.user.permissions;
+		res.render("roles/addRole", { roleNames, permissionList });
 	},
 
 	handleAdd: async (req, res) => {
 		const { name, permissions } = req.body;
 		if (name && permissions) {
-			console.log(name, permissions);
 			const role = await Role.create({
 				name,
 			});
@@ -75,6 +76,7 @@ module.exports = {
 		};
 
 		const roleNames = await getRoleNames(req, res);
+		const permissionList = req.user.permissions;
 
 		res.render("roles/editRole", {
 			role,
@@ -82,13 +84,13 @@ module.exports = {
 			permissions,
 			permissionUtil,
 			roleNames,
+			permissionList,
 		});
 	},
 
 	handleEdit: async (req, res) => {
 		const { id } = req.params;
 		const { permission, name } = req.body;
-		console.log(id, permission, name);
 
 		await Role.update(
 			{
@@ -116,7 +118,6 @@ module.exports = {
 			} else {
 				dataPermission = permission.map((item) => ({ value: item }));
 			}
-			console.log(dataPermission);
 
 			dataPermission.forEach(async (item) => {
 				const permissonIntance = await Permission.findOne({
@@ -157,7 +158,6 @@ module.exports = {
 			},
 		});
 
-		console.log(role);
 		res.redirect("/role");
 	},
 };
