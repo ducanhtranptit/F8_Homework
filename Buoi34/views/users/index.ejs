@@ -1,7 +1,8 @@
 <h2>Danh sách người dùng</h2>
 
-<a href="" class="btn btn-primary">Thêm mới</a>
-
+<% if(permissionList.includes("add")) { %>
+    <a href="" class="btn btn-primary">Thêm mới</a>
+<% } %>
 <hr />
 
 <table class="table table-bordered">
@@ -10,9 +11,14 @@
       <th width="5%">STT</th>
       <th>Tên</th>
       <th>Email</th>
-      <th width="15%">Phân quyền</th>
-      <th width="5%">Sửa</th>
-      <th width="5%">Xóa</th>
+      <% if(permissionList.includes("update")) { %>
+        <th width="15%">Phân quyền</th>
+        <th width="5%">Sửa</th>
+      <% } %>
+
+      <% if(permissionList.includes("update")) { %>
+          <th width="5%">Xóa</th>
+      <% } %>
     </tr>
   </thead>
 
@@ -22,11 +28,16 @@
       <td><%= index + 1 %></td>
       <td><%= name %></td>
       <td><%= email %></td>
-      <td><a href="/users/permission/<%= id %>" class="btn btn-primary">Phân quyền</a></td>
-      <td><a href="" class="btn btn-warning">Sửa</a></td>
-      <td><a href="" class="btn btn-danger">Xóa</a></td>
-    </tr>
 
+      <% if(permissionList.includes("update")) { %>
+        <td><a href="/users/permission/<%= id %>" class="btn btn-primary">Phân quyền</a></td>
+        <td><a href="" class="btn btn-warning">Sửa</a></td>
+      <% } %>
+
+      <% if(permissionList.includes("update")) { %>
+          <td><a href="" class="btn btn-danger">Xóa</a></td>
+      <% } %>
+    </tr>
     <% }) %>
   </tbody>
 </table>

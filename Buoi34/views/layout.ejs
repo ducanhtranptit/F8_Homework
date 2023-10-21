@@ -16,14 +16,14 @@
           <div class="col-3">
             <nav>
               <ul class="nav flex-column">
-                <li><a href="/">trang chủ</a></li>
+                <li><a href="/">Trang chủ</a></li>
 
-                <% if(permissionList.include("read")){ %>
-                    <li><a href="/users">quản lý người dùng</a></li>
-                    <li><a href="/role">quản lý Role</a></li>
-                <% }; %>
-
-
+                <% if(roleNames.includes("super admin")) { %>
+                    <li><a href="/users">Quản lý người dùng</a></li>
+                    <li><a href="/role">Quản lý Role</a></li>
+                <% } else {%>
+                    <li><a href="/users">Danh sách người dùng</a></li>
+                <% } %>
                 <a href="/auth/logout">Đăng xuất</a>
               </ul>
             </nav>

@@ -1,15 +1,17 @@
 const model = require("../models/index");
 const Role = model.Role;
 const Permission = model.Permission;
+const User = model.User;
+const roleNames = require("../utils/role");
 
 module.exports = {
 	index: async (req, res) => {
 		const roles = await Role.findAll();
-		res.render("roles/index", { roles });
+		res.render("roles/index", { roles, roleNames });
 	},
 
 	add: async (req, res) => {
-		res.render("roles/addRole");
+		res.render("roles/addRole", { roleNames });
 	},
 
 	handleAdd: async (req, res) => {
@@ -70,7 +72,13 @@ module.exports = {
 			}
 		};
 
-		res.render("roles/editRole", { role, roles, permissions, permissionUtil });
+		res.render("roles/editRole", {
+			role,
+			roles,
+			permissions,
+			permissionUtil,
+			roleNames,
+		});
 	},
 
 	handleEdit: async (req, res) => {
@@ -136,6 +144,7 @@ module.exports = {
 
 		//xoa tat ca cac permission lien quan den role can xoa
 		await role.removePermissions(await Permission.findAll());
+		await role.removeUsers(await User.findAll());
 
 		//xoa Role
 		await Role.destroy({

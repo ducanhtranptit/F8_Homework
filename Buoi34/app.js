@@ -17,6 +17,7 @@ const authRouter = require("./routes/auth");
 
 const loginMiddleware = require("./middlewares/LoginMiddleware");
 const permissionMiddleware = require("./middlewares/PermissionMiddleware");
+const adminMiddleware = require("./middlewares/AdminMiddleware");
 
 const app = express();
 
@@ -61,6 +62,8 @@ app.use("/", indexRouter);
 app.use(permissionMiddleware);
 
 app.use("/users", usersRouter);
+
+app.use(adminMiddleware);
 app.use("/role", roleRouter);
 
 // catch 404 and forward to error handler

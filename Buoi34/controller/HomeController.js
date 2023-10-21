@@ -2,13 +2,12 @@ const model = require("../models/index");
 const User = model.User;
 const Role = model.Role;
 const Permission = model.Permission;
-const { checkPermission } = require("../utils/permission");
+const roleNames = require("../utils/role");
 
 module.exports = {
 	getUserPermission: async (req, res) => {
 		if (req.user) {
 			const { id } = req.user;
-
 			const user = await User.findOne({
 				where: {
 					id,
@@ -42,8 +41,8 @@ module.exports = {
 			const permissionList = req.user.permissions;
 			res.render("index", {
 				title: "Express",
-				checkPermission,
 				permissionList,
+				roleNames,
 			});
 		}
 	},
