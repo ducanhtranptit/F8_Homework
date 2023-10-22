@@ -35,7 +35,10 @@
       <% } %>
 
       <% if(permissionList.includes("update")) { %>
-          <td><a href="" class="btn btn-danger">Xóa</a></td>
+          <td>
+            <a href="" class="btn btn-danger delete-action">Xóa</a>
+            <form action="users/delete/<%= id %>" method="post"></form>
+          </td>
       <% } %>
     </tr>
     <% }) %>

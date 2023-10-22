@@ -72,23 +72,6 @@ module.exports = {
     },
 
     handleAdd: async (req, res) => {
-        res.redirect("/users");
-    },
-
-    edit: async (req, res) => {
-        const { id } = req.params;
-        const user = await User.findOne({
-            where: {
-                id,
-            },
-        });
-        const userName = user.dataValues.name;
-        const userEmail = user.dataValues.email;
-        const roleNames = await getRoleNames(req, res);
-        res.render("users/edit", { roleNames, userName, userEmail });
-    },
-
-    handleEdit: async (req, res) => {
         const { name, email, password } = req.body;
         if (!name || !email || !password) {
             res.redirect("/user/add");
@@ -113,5 +96,66 @@ module.exports = {
         }
     },
 
-    delete: (req, res) => {},
+    edit: async (req, res) => {
+        const { id } = req.params;
+        const user = await User.findOne({
+            where: {
+                id,
+            },
+        });
+        const userName = user.dataValues.name;
+        const userEmail = user.dataValues.email;
+        const roleNames = await getRoleNames(req, res);
+        res.render("users/edit", { roleNames, userName, userEmail });
+    },
+
+    handleEdit: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const { name, email, password } = req.body;
+
+            if (name) {
+                await User.update({ name: name }, { where: { id: id } });
+            }
+
+            if (email) {
+                await User.update({ email: email }, { where: { id: id } });
+            }
+
+            if (password) {
+                const hashPassword = hash.make(password);
+                await User.update(
+                    { password: hashPassword },
+                    { where: { id: id } }
+                );
+            }
+
+            res.redirect("/users");
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Internal Server Error");
+        }
+    },
+
+    delete: async (req, res) => {
+        try {
+            const { id } = req.params;
+            const user = await User.findOne({
+                where: { id },
+            });
+
+            await user.removeRoles(await Role.findAll());
+
+            await User.destroy({
+                where: {
+                    id,
+                },
+            });
+        } catch (error) {
+            console.error(error);
+            res.status(500).send("Internal Server Error");
+        }
+
+        res.redirect("/users");
+    },
 };

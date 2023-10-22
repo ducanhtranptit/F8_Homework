@@ -13,11 +13,16 @@
     <% roles.forEach(({ id, name }, index) => { %>
     <tr>
       <td><%= name %></td>
-      <td><a href="role/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
-      <td>
-        <a href="" class="btn btn-danger delete-action">Xóa</a>
-        <form action="role/delete/<%= id %>" method="post"></form>
-      </td>
+      <% if(name === "super admin") { %>
+        <td></td>
+        <td></td>
+      <% } else { %>
+        <td><a href="role/edit/<%= id %>" class="btn btn-warning">Sửa</a></td>
+        <td>
+          <a href="" class="btn btn-danger delete-action">Xóa</a>
+          <form action="role/delete/<%= id %>" method="post"></form>
+        </td>
+      <% } %>
     </tr>
 
     <% }) %>
