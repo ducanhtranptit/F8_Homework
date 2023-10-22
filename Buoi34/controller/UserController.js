@@ -113,23 +113,13 @@ module.exports = {
         try {
             const { id } = req.params;
             const { name, email, password } = req.body;
-
-            if (name) {
-                await User.update({ name: name }, { where: { id: id } });
-            }
-
-            if (email) {
-                await User.update({ email: email }, { where: { id: id } });
-            }
-
-            if (password) {
+            if ((name, email, password)) {
                 const hashPassword = hash.make(password);
                 await User.update(
-                    { password: hashPassword },
-                    { where: { id: id } }
+                    { name: name, email: email, password: hashPassword },
+                    { where: { id } }
                 );
             }
-
             res.redirect("/users");
         } catch (error) {
             console.error(error);
