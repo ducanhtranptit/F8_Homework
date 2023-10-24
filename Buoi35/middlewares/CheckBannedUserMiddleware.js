@@ -3,7 +3,7 @@ const User = model.User;
 const Banned = model.Banned;
 
 class CheckBannedUserMiddleware {
-    async bannedUser(req, res, next) {
+    async checkBannedUser(req, res, next) {
         const { id } = req.params;
 
         const user = await User.findOne({
@@ -12,14 +12,10 @@ class CheckBannedUserMiddleware {
 
         const bannedUsers = Banned.findAll();
 
-        const bannedUser = bannedUsers.filter(
-            (banned) => banned.email === user.email
-        );
+        const bannedUser = bannedUsers.filter((banned) => banned.email === user.email);
 
         if (bannedUser) {
-            return res
-                .status(403)
-                .json({ message: "Bạn không có quyền truy cập API." });
+            return res.status(403).json({ message: "Bạn không có quyền truy cập API." });
         }
 
         next();
