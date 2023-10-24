@@ -7,8 +7,8 @@ const CheckBannedUserMiddleware = require("../middlewares/CheckBannedUserMiddlew
 /* GET users listing. */
 router.get("/", UserController.index);
 router.post("/", UserController.create);
-router.put("/:id", CheckBannedUserMiddleware, UserController.edit);
-router.patch("/:id", CheckBannedUserMiddleware, UserController.update);
-router.delete("/:id", CheckBannedUserMiddleware, UserController.delete);
+router.put("/:id", CheckBannedUserMiddleware.bannedUser, UserController.edit);
+router.patch("/:id", CheckBannedUserMiddleware.bannedUser, UserController.update);
+router.delete("/:id", CheckBannedUserMiddleware.bannedUser, UserController.delete);
 
 module.exports = router;

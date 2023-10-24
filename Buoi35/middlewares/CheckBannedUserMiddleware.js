@@ -2,7 +2,7 @@ const model = require("../models/index");
 const User = model.User;
 const Banned = model.Banned;
 
-class checkBannedUserMiddleware {
+class CheckBannedUserMiddleware {
     async bannedUser(req, res, next) {
         const { id } = req.params;
 
@@ -25,3 +25,5 @@ class checkBannedUserMiddleware {
         next();
     }
 }
+
+module.exports = new CheckBannedUserMiddleware();
