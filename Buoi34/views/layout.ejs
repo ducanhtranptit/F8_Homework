@@ -18,7 +18,9 @@
               <ul class="nav flex-column">
                 <li><a href="/">Trang chủ</a></li>
 
-                <% if(roleNames.includes("super admin")) { %>
+                <% console.log(roleNames) %>
+                <% if(roleNames !== undefined && roleNames.includes("super admin")) { %>
+                    <% console.log(roleNames) %>
                     <li><a href="/users">Quản lý người dùng</a></li>
                     <li><a href="/role">Quản lý Role</a></li>
                 <% } else if(permissionList.includes("read")) {%>

@@ -106,7 +106,6 @@ module.exports = {
         const userName = user.dataValues.name;
         const userEmail = user.dataValues.email;
         const roleNames = await getRoleNames(req, res);
-        console.log("999999999999");
         console.log(roleNames);
         res.render("users/edit", { roleNames, userName, userEmail });
     },
