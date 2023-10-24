@@ -10,13 +10,15 @@ class CheckBannedUserMiddleware {
             where: { id },
         });
 
-        const bannedUsers = Banned.findAll();
+        const bannedUsers = await Banned.findAll();
 
-        const bannedUser = bannedUsers.filter((banned) => banned.email === user.email);
+        const bannedUser = bannedUsers.find((banned) => banned.email === user.email);
 
         if (bannedUser) {
             return res.status(403).json({ message: "Bạn không có quyền truy cập API." });
         }
+
+        console.log(bannedUsers);
 
         next();
     }

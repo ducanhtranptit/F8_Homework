@@ -120,7 +120,7 @@ class UserController {
     async revoke(req, res) {
         const { id } = req.params;
 
-        const bannedUsers = Banned.findAll();
+        const bannedUsers = await Banned.findAll();
 
         const user = await User.findOne({
             where: { id },
@@ -129,11 +129,9 @@ class UserController {
             return res.status(404).json({ message: "User không tồn tại." });
         }
 
-        const bannedUser = bannedUsers.filter(
-            (banned) => banned.email === user.email
-        );
+        const bannedUser = bannedUsers.filter((banned) => banned.email === user.email);
 
-        if (!bannedUser) {
+        if (bannedUser.length === 0) {
             await Banned.create({
                 name: user.name,
                 email: user.email,
