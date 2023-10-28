@@ -7,14 +7,28 @@ const VideoLink = model.VideoLink;
 class UploadFile {
 	async index(req, res) {
 		const { userId } = req.body;
-		const linksOfUser = await VideoLink.findAll({
-			where: {
-				userId,
-			},
-		});
-		res.status(200).json({
-			linksOfUser,
-		});
+		try {
+			const linksOfUser = await VideoLink.findAll({
+				where: {
+					userId,
+				},
+			});
+			if (linksOfUser) {
+				return res.status(200).json({
+					linksOfUser,
+				});
+			} else {
+				return res.status(400).json({
+					status: "Error",
+					message: "Invalid User",
+				});
+			}
+		} catch (error) {
+			return res.status(500).json({
+				status: "Error",
+				error,
+			});
+		}
 	}
 
 	async upload(req, res) {
