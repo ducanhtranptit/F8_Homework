@@ -1,11 +1,7 @@
 const SendMail = require("../jobs/SendMail");
 const Event = require("../core/Event");
 class UserController {
-	verif(req, res) {
-		res.render("users/verify");
-	}
-
-	async handleVerify(req, res) {
+	async handleSendMail(req, res) {
 		const { email, name } = req.body;
 		new Event(
 			new SendMail({
@@ -14,7 +10,10 @@ class UserController {
 			})
 		);
 
-		res.send("Hello");
+		res.status(200).json({
+			status: "success",
+			message: "Email send",
+		});
 	}
 }
 module.exports = new UserController();
