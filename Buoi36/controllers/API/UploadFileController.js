@@ -35,7 +35,7 @@ class UploadFile {
 		const { userId } = req.body;
 		const storage = multer.diskStorage({
 			destination: function (req, file, cb) {
-				cb(null, "uploads/");
+				cb(null, "public/uploads");
 			},
 			filename: function (req, file, cb) {
 				cb(null, Date.now() + path.extname(file.originalname));
@@ -69,7 +69,7 @@ class UploadFile {
 	sendFIle(req, res) {
 		const { fileName } = req.params;
 		console.log(fileName);
-		res.sendFile(`uploads/${fileName}`);
+		res.sendFile(`public/uploads/${fileName}`);
 	}
 }
 module.exports = new UploadFile();
