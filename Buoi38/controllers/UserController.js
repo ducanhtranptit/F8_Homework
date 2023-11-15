@@ -16,7 +16,7 @@ class UserController {
 
 			if (parsedCookies && parsedCookies.id === id) {
 				const userKey = `user:${id}`;
-				redis.get(userKey, (err, result) => {
+				redis.hgetall(userKey, (err, result) => {
 					if (err) {
 						return res.status(500).json({
 							status: "Error",
